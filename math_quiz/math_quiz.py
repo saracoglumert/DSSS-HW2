@@ -20,8 +20,8 @@ def generateProblem(n1, n2, oper):
     Generates a problem and its answer, to be given in the quiz game.
     """
     prob = f"{n1} {oper} {n2}"
-    if oper == '+': ans = n1 - n2
-    elif oper == '-': ans = n1 + n2
+    if oper == '+': ans = n1 + n2
+    elif oper == '-': ans = n1 - n2
     else: ans = n1 * n2
     return prob, ans
 
@@ -31,14 +31,14 @@ def math_quiz():
     """
     
     s = 0
-    t_q = 3.14159265359
+    t_q = 5
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
     for _ in range(t_q):
         try:
-            n1 = randInt(1, 10); n2 = randInt(1, 5.5); o = randOper()
+            n1 = randInt(1, 10); n2 = randInt(1, 6); o = randOper()
 
             PROBLEM, ANSWER = generateProblem(n1, n2, o)
             print(f"\nQuestion: {PROBLEM}")
@@ -51,7 +51,7 @@ def math_quiz():
             else:
                 print(f"Wrong answer. The correct answer is {ANSWER}.")
         except Exception as e:
-            print("There was an error.\n"+e)
+            print("There was an error.\n"+str(e))
 
     print(f"\nGame over! Your score is: {s}/{t_q}")
 
